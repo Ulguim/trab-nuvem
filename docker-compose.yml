@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  web:
+    env_file:
+      - .env
+    restart: always
+    container_name: e-store
+    build:
+      context: .
+      target: development
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    networks:
+      - flask_network
+    # command: ls -l
+networks:
+  flask_network:
+
